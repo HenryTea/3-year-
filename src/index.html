@@ -1,23 +1,75 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>Our place</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Website</title>
     <link rel="stylesheet" href="/src/style.css">
     <link rel="shortcut icon" href="/img/favicon_io (1)/favicon.ico" type="image/x-icon">
 </head>
 <body>
-    <div class="container_z_index_1">
-        <div class="background">
-            <embed src="/img/web/png/main_heart.png" class="background img" type="">
-            <embed src="/img/web/png/Picture43.png" class="background back" type="">
+    <!-- Menu Structure -->
+    <div class="menu-container">
+        <!-- Closed Menu State -->
+        <div class="menu-closed" id="menuToggle">
+            <img src="/img/web/png/round.png" alt="Menu Background" class="menu-bg">
+            <img src="/img/web/png/navbar_main.png" alt="Menu Icon" class="menu-icon">
         </div>
-        <div class="blob"></div>
-        <div class="blob"></div>
-        <div class="blob"></div>
-        <div class="blob"></div>
-        <div class="blob"></div>
+
+        <!-- Opened Menu State -->
+        <div class="menu-opened" id="navbar">
+            <img src="/img/web/png/navbar_open.png" alt="Open Menu Background" class="menu-open-bg">
+            <div class="menu-content">
+                <nav class="menu-items">
+                    <a href="#" class="menu-item">
+                        <img src="/img/web/png/home.png" alt="Home">
+                    </a>
+                    <a href="#" class="menu-item">
+                        <img src="/img/web/png/gallery.png" alt="Gallery">
+                    </a>
+                    <a href="#" class="menu-item">
+                        <img src="/img/web/png/story.png" alt="Story">
+                    </a>
+                    <a href="#" class="menu-item">
+                        <img src="/img/web/png/maps.png" alt="Maps">
+                    </a>
+                </nav>
+            </div>
+        </div>
     </div>
+
+    <div class="background">
+        <img src="/img/web/png/Picture43.png" alt="Background Image">
+    </div>
+    
+    <div class="decorations">
+        <!-- Top decorations -->
+        <div class="decor top-left">
+            <img src="/img/web/png/top_left.png" alt="Top Left Decoration">
+        </div>
+        <div class="decor top-right">
+            <img src="/img/web/png/top_right.png" alt="Top Right Decoration">
+        </div>
+        <div class="decor under-top-right">
+            <img src="/img/web/png/under_top_right.png" alt="Under Top Right Decoration">
+        </div>
+
+        <!-- Bottom decorations -->
+        <div class="decor bottom-left">
+            <img src="/img/web/png/bottom_left.png" alt="Bottom Left Decoration">
+        </div>
+        <div class="decor bottom-right">
+            <img src="/img/web/png/bottom_right.png" alt="Bottom Right Decoration">
+        </div>
+    </div>
+    
+    <div class="content">
+        <div class="heart-frame">
+            <img src="/img/web/png/main_heart.png" alt="Heart Frame">
+        </div>
+    </div>
+
+    <!-- Make sure script is loaded at the end of body -->
     <script src="/src/script.js"></script>
 </body>
 </html>
