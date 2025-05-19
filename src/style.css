@@ -122,12 +122,18 @@ body {
     width: 24px;
     height: 24px;
     transform: translateX(-7px);
+    transition: transform 0.2s ease-in-out;
+}
+
+.menu-item:hover {
+    transform: translateX(-7px) scale(1.2);
 }
 
 .menu-item img {
     width: 100%;
     height: 100%;
     object-fit: contain;
+    transition: transform 0.2s ease-in-out;
 }
 
 /* Show opened menu when active */
@@ -154,13 +160,8 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 1850px;
-    height: 900px;
-    background-image: url('/img/web/png/Picture43.png');
-    background-size: 100% 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    transition: width 0.3s ease, height 0.3s ease, background-image 0.3s ease;
+    width: 100%;
+    height: 100%;
 }
 
 /* Decorations */
@@ -235,8 +236,10 @@ body {
 
 .heart-frame {
     position: relative;
-    top: 7%;
-    width: 600px;
+    top: 5%;
+    width: min(542px, 80vw);
+    max-width: 542px;
+    min-width: 185px;
 }
 
 .heart-frame img {
@@ -271,15 +274,15 @@ body {
 }
 
 /* Mobile Responsive Design */
-@media screen and (max-width: 430px) {
+@media screen and (max-width: 600px) {
     .background::before {
-        width: 925px;
-        height: 450px;
-        background-image: url('/img/web/png/Picture5.png');
+        width: 100%;
+        height: 100%;
     }
 
     .heart-frame {
-        width: 306px;
+        width: min(279px, 76vw);
+        top: 3%;
     }
 
     .top-left, .top-right, .bottom-left, .bottom-right {
@@ -332,14 +335,22 @@ body {
         height: 20px;
         transform: translateX(-6px);
     }
+
+    .menu-item:hover {
+        transform: translateX(-6px) scale(1.2);
+    }
+
+    .background img {
+        width: 60%;
+        height: 60%;
+    }
 }
 
 /* Medium screen adjustments */
 @media screen and (min-width: 431px) and (max-width: 768px) {
     .background::before {
-        width: 1295px;
-        height: 630px;
-        background-image: url('/img/web/png/Picture43.png');
+        width: 100%;
+        height: 100%;
     }
 
     .menu-container {
@@ -354,4 +365,30 @@ body {
         height: 180px;
         left: -30px;
     }
+
+    .heart-frame {
+        width: min(408px, 71vw);
+        top: 4%;
+    }
+}
+
+/* Large PC screen adjustments */
+@media screen and (min-width: 1781px) and (min-height: 940px) {
+    .heart-frame {
+        width: min(656px, 80vw);  /* Increased by 10% from 596px */
+        max-width: 656px;         /* Increased by 10% from 596px */
+        min-width: 224px;         /* Increased by 10% from 204px */
+        top: 5%;
+    }
+}
+
+.background img {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 1;
 }
