@@ -1,394 +1,148 @@
-:root {
-    --pink-bg: #ffdff7;
-    --menu-bg: rgba(255, 223, 247, 0.95);
-    --text-color: #333;
-}
-
-* {
+body {
+    background-color: #e8b4b8;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-}
-
-body {
-    background-color: var(--pink-bg);
-    font-family: Arial, sans-serif;
-    min-height: 100vh;
-    position: relative;
     overflow: hidden;
 }
-
-/* Menu Styles */
-.menu-container {
-    position: fixed;
-    top: 20px;
-    left: 20px;
-    z-index: 9999;
+.your-element {
+    font-family: 'DFVN Radja Lover', cursive;
 }
 
-.menu-closed, .menu-opened {
-    position: absolute;
-    cursor: pointer;
-}
-
-/* Closed Menu State */
-.menu-closed {
-    width: 60px;
-    height: 60px;
-    position: relative;
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    padding-left: 16px;
-    padding-top: 5px;
-}
-
-.menu-closed .menu-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-.menu-closed .menu-icon {
-    width: 50%;
-    height: 50%;
-    object-fit: contain;
-    z-index: 1;
-    transform: translateY(-4px);
-}
-
-/* Opened Menu State */
-.menu-opened {
-    position: absolute;
-    top: 70px;
-    left: -30px;
-    width: 50px;
-    transition: left 0.3s ease-out, opacity 0.3s ease-out, visibility 0s linear 0.3s;
-    opacity: 0;
-    visibility: hidden;
-    height: 180px;
-}
-
-.menu-opened .menu-open-bg {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    position: relative;
-    z-index: 1;
-}
-
-.menu-content {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-}
-
-.menu-header {
-    width: 40px;
-    height: 40px;
-    margin: 10px auto;
-    display: block;
-}
-
-.menu-divider {
-    width: 80%;
-    height: 2px;
-    margin: 15px auto;
-    display: block;
-}
-
-.menu-items {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    align-items: center;
-    width: 100%;
-    padding: 24px 0 20px 15px;
-}
-
-.menu-item {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 24px;
-    height: 24px;
-    transform: translateX(-7px);
-    transition: transform 0.2s ease-in-out;
-}
-
-.menu-item:hover {
-    transform: translateX(-7px) scale(1.2);
-}
-
-.menu-item img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-    transition: transform 0.2s ease-in-out;
-}
-
-/* Show opened menu when active */
-.menu-container.menu-active .menu-opened {
-    left: 0;
-    opacity: 1;
-    visibility: visible;
-    transition: left 0.3s ease-out, opacity 0.3s ease-out, visibility 0s linear 0s;
-}
-
-.background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 1;
-    overflow: hidden;
-}
-
-.background::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
-}
-
-/* Decorations */
-.decorations {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    z-index: 3;
-    pointer-events: none;
-}
-
-.decor {
-    position: absolute;
-}
-
-.decor img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-/* Top decorations */
-.top-left {
-    top: 10px;
-    left: 10px;
-    width: 400px;
-    z-index: 1;
-}
-
-.top-right {
-    top: 10px;
-    right: 10px;
-    width: 400px;
-    z-index: 3;
-}
-
-.under-top-right {
-    top: 70px;
-    right: 20px;
-    width: 400px;
-    z-index: 2;
-}
-
-/* Bottom decorations */
-.bottom-left {
-    bottom: 10px;
-    left: 10px;
-    width: 400px;
-    z-index: 1;
-}
-
-.bottom-right {
-    bottom: 10px;
-    right: 10px;
-    width: 400px;
-    z-index: 1;
-}
-
-.content {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 2;
-}
-
-.heart-frame {
-    position: relative;
-    top: 5%;
-    width: min(542px, 80vw);
-    max-width: 542px;
-    min-width: 185px;
-}
-
-.heart-frame img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
-}
-
-/* Floating Hearts */
-.floating-hearts {
-    position: absolute;
-    right: 50px;
-    bottom: 50px;
-    z-index: 3;
-}
-
-.heart {
-    width: 30px;
-    height: 30px;
-    margin: 5px;
-    opacity: 0.8;
-    animation: float 3s infinite;
-}
-
-.heart:nth-child(2) { animation-delay: 0.5s; }
-.heart:nth-child(3) { animation-delay: 1s; }
-
-@keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
-    100% { transform: translateY(0); }
-}
-
-/* Mobile Responsive Design */
-@media screen and (max-width: 600px) {
-    .background::before {
-        width: 100%;
-        height: 100%;
-    }
-
-    .heart-frame {
-        width: min(279px, 76vw);
-        top: 3%;
-    }
-
-    .top-left, .top-right, .bottom-left, .bottom-right {
-        width: 88px;
-    }
-
-    .under-top-right {
-        width: 77px;
-        top: 63px;
-        right: 15px;
-    }
-
-    .floating-hearts {
-        right: 20px;
-        bottom: 20px;
-    }
-
-    .heart {
-        width: 20px;
-        height: 20px;
-    }
-
-    .menu-container {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 9999;
-    }
-
-    .menu-closed {
-        width: 50px;
-        height: 50px;
-        padding-left: 14px;
-        padding-top: 4px;
-    }
-
-    .menu-opened {
-        top: 60px;
-        height: 180px;
-        left: -30px;
-    }
-
-    .menu-items {
-        padding: 20px 0 16px 12px;
-        gap: 16px;
-    }
-
-    .menu-item {
-        width: 20px;
-        height: 20px;
-        transform: translateX(-6px);
-    }
-
-    .menu-item:hover {
-        transform: translateX(-6px) scale(1.2);
-    }
-
-    .background img {
-        width: 60%;
-        height: 60%;
-    }
-}
-
-/* Medium screen adjustments */
-@media screen and (min-width: 431px) and (max-width: 768px) {
-    .background::before {
-        width: 100%;
-        height: 100%;
-    }
-
-    .menu-container {
-        position: fixed;
-        top: 20px;
-        left: 20px;
-        z-index: 9999;
-    }
-
-    .menu-opened {
-        top: 65px;
-        height: 180px;
-        left: -30px;
-    }
-
-    .heart-frame {
-        width: min(408px, 71vw);
-        top: 4%;
-    }
-}
-
-/* Large PC screen adjustments */
-@media screen and (min-width: 1781px) and (min-height: 940px) {
-    .heart-frame {
-        width: min(656px, 80vw);  /* Increased by 10% from 596px */
-        max-width: 656px;         /* Increased by 10% from 596px */
-        min-width: 224px;         /* Increased by 10% from 204px */
-        top: 5%;
-    }
-}
-
-.background img {
+.background-img {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
-    width: 100%;
-    height: 100%;
+    transform: translate(-50%, -50%) scale(1.1);
+    width: 100vw;
+    height: 100vh;
     object-fit: cover;
     z-index: 1;
+}
+
+@media (min-width: 600px) {
+    .background-img {
+        transform: translate(-50%, -50%) scale(1.5);
+    }
+}
+
+@media (min-width: 1200px) {
+    .background-img {
+        transform: translate(-50%, -50%) scale(1.5);
+    }
+}
+
+.main-content {
+    position: relative;
+    z-index: 2;
+}
+
+.pic-container {
+    position: relative;
+    perspective: 1000px;
+    transform-style: preserve-3d;
+    transition: transform 1s ease;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pic-container:hover {
+    transform: rotateY(180deg);
+}
+
+.main-pic {
+    width: 60vw;
+    height: auto;
+    object-fit: contain;
+    position: relative;
+    z-index: 2;
+    transform: translate(0%, 0%) scale(1);
+    backface-visibility: hidden;
+    transition: transform 1s ease;
+}
+
+.day-counter-wrapper {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    transform-style: preserve-3d;
+}
+
+.day-counter {
+    position: absolute;
+    width: 60vw;
+    height: auto;
+    object-fit: contain;
+    z-index: 1;
+    transform: translate(-50%, 0%) scale(0.9) rotateY(180deg);
+    opacity: 0.8;
+    backface-visibility: hidden;
+    transition: transform 1s ease;
+}
+
+.day-counter-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%) rotateY(180deg);
+    font-family: 'DFVN Radja Lover', cursive;
+    font-size: 54px;
+    color: #a47175;
+    z-index: 2;
+    white-space: nowrap;
+    backface-visibility: hidden;
+}
+
+#days-counter {
+    font-weight: bold;
+}
+
+@media (min-width: 600px) {
+    .main-pic {
+        padding-top: 4vh;
+        transform: translate(0%, 0%) scale(0.7);
+    }
+    .day-counter {
+        width: 60vw;
+        transform: translate(-50%, 7%) scale(0.7) rotateY(180deg);
+    }
+    .day-counter-text {
+        font-size: 70px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .main-pic {
+        padding-top: 5vh;
+        transform: translate(0%, -10%) scale(0.5);
+    }
+    .day-counter {
+        width: 60vw;
+        transform: translate(-50%, -7%) scale(0.5) rotateY(180deg);
+    }
+    .day-counter-text {
+        font-size: 90px;
+        transform: translate(-50%, -150%)rotateY(180deg);
+    }
+}
+
+.top-left {
+    position: absolute;
+    top: 70px;
+    left: 60px;
+    width: 50%;
+    height: auto;
+    z-index: 999;
+}
+
+.under-top-left {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: auto;
+    z-index: 998;
 }
