@@ -16,3 +16,8 @@ setInterval(() => {
         updateDaysCounter();
     }
 }, 60000); // Check every minute
+
+// Menu click handler
+document.querySelector('.menu-icon-container').addEventListener('click', function() {
+    this.classList.toggle('expanded');
+});
