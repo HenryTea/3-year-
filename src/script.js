@@ -17,7 +17,16 @@ setInterval(() => {
     }
 }, 60000); // Check every minute
 
-// Menu click handler
-document.querySelector('.menu-icon-container').addEventListener('click', function() {
-    this.classList.toggle('expanded');
+// Menu icon functionality
+const menuIcon = document.querySelector('.menu-icon');
+const romanticContainer = document.querySelector('.romantic-container');
+
+menuIcon.addEventListener('click', () => {
+    romanticContainer.classList.toggle('shrink');
+    // Only add active class when container is expanded (not shrunk)
+    if (romanticContainer.classList.contains('shrink')) {
+        menuIcon.classList.remove('active');
+    } else {
+        menuIcon.classList.add('active');
+    }
 });
