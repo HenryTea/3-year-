@@ -30,3 +30,9 @@ menuIcon.addEventListener('click', () => {
         menuIcon.classList.add('active');
     }
 });
+
+// Main picture flip animation
+const picContainer = document.querySelector('.pic-container');
+picContainer.addEventListener('click', () => {
+    picContainer.classList.toggle('flipped');
+});
