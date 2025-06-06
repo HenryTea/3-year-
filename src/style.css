@@ -49,7 +49,7 @@ body {
     z-index: 4;
 }
 
-.pic-container:hover {
+.pic-container:active {
     transform: rotateY(180deg);
 }
 
@@ -240,6 +240,50 @@ body {
     transform: rotate(-45deg) translate(5px, -5px);
 }
 
+.menu-content {
+    position: absolute;
+    top: 30px;
+    left: -21px;
+    width: 100%;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.romantic-container:not(.shrink) .menu-content {
+    opacity: 1;
+    visibility: visible;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+}
+
+.menu-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.menu-icon-img {
+    width: 40px;
+    height: 40px;
+    margin-right: 15px;
+}
+
+.menu-label {
+    margin-left: 30px;
+    color: #a47175;
+    font-family: 'Fredoka', sans-serif;
+    font-size: 40px;
+    font-weight: 500;
+}
+
 @media (min-width: 600px) {
     .main-pic {
         padding-top: 4vh;
@@ -278,19 +322,27 @@ body {
     }
     .menu-icon span {
         width: 26px;
-        height: 2.6px;
+        height: 2px;
     }
     .menu-icon {
         gap: 7.8px;
     }
     .menu-icon.active .line1 {
-        transform: rotate(45deg) translate(6.5px, 6.5px);
+        transform: rotate(45deg) translate(7px, 7px);
     }
     .menu-icon.active .line3 {
-        transform: rotate(-45deg) translate(6.5px, -6.5px);
+        transform: rotate(-45deg) translate(7px, -7px);
     }
     .romantic-container.shrink{
-        transform: translate(0%, 0%) scale(1.5);
+        transform: translate(10%, 10%) scale(1);
+    }
+    .menu-icon-img {
+        width: 30px;
+        height: 30px;
+    }
+    
+    .menu-label {
+        font-size: 24px;
     }
 }
 
@@ -333,9 +385,11 @@ body {
     }
     .menu-icon span {
         width: 30px;
-        height: 3px;
+        height: 2px;
     }
     .menu-icon {
+        left: 6px;
+        top: 6px;
         gap: 9px;
     }
     .menu-icon.active .line1 {
@@ -345,51 +399,16 @@ body {
         transform: rotate(-45deg) translate(7.5px, -7.5px);
     }
     .romantic-container.shrink{
-        transform: translate(60%, 60%) scale(1.75);
+        transform: translate(40%, 40%) scale(1);
     }
-}
-
-.menu-content {
-    position: absolute;
-    top: 30px;
-    left: -21px;
-    width: 100%;
-    padding: 20px;
-    opacity: 0;
-    visibility: hidden;
-    transition: all 0.3s ease;
-}
-
-.romantic-container:not(.shrink) .menu-content {
-    opacity: 1;
-    visibility: visible;
-}
-
-.menu-item {
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    margin-bottom: 10px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 10px;
-}
-
-.menu-item:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-}
-
-.menu-icon-img {
-    width: 40px;
-    height: 40px;
-    margin-right: 15px;
-}
-
-.menu-label {
-    margin-left: 30px;
-    color: #a47175;
-    font-family: 'DFVN Radja Lover', cursive;
-    font-size: 40px;
+    .menu-icon-img {
+        width: 35px;
+        height: 35px;
+    }
+    
+    .menu-label {
+        font-size: 28px;
+    }
 }
 
 @media (min-width: 600px) {
@@ -416,23 +435,23 @@ body {
 
 @media (min-width: 1200px) {
     .menu-content {
-        top: 120px;
-        padding: 40px;
+        top: 40px;
+        padding: 25px;
     }
     
     .menu-item {
-        padding: 25px;
-        margin-bottom: 20px;
+        padding: 20px;
+        margin-bottom: 10px;
     }
     
     .menu-icon-img {
-        width: 35px;
-        height: 35px;
+        width: 45px;
+        height: 45px;
         margin-right: 25px;
     }
     
     .menu-label {
-        font-size: 28px;
+        font-size: 40px;
     }
 }
 
